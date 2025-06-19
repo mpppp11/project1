@@ -1,0 +1,534 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f9fafb;
+  overflow-x: hidden;
+}
+
+
+.page {
+  display: none;
+  min-height: 100vh;
+}
+
+.page.active {
+  display: block;
+}
+
+
+.page:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: white;
+}
+
+.cover-container {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.portfolio-card {
+  background: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transform: scale(1);
+  transition: transform 0.7s ease;
+}
+
+.portfolio-card:hover {
+  transform: scale(1.05);
+}
+
+.card-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.card-content {
+  padding: 3rem 2rem;
+}
+
+.card-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 6rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 3rem;
+  letter-spacing: -0.05em;
+}
+
+.hero-image {
+  position: relative;
+  aspect-ratio: 4/3;
+  background-image: url(hero\ cover.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.image-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.figure {
+  position: absolute;
+  bottom: 33%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.5rem;
+  height: 1.5rem;
+  background: #1f2937;
+  border-radius: 9999px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.hero-image:hover .overlay {
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.enter-btn {
+  background: white;
+  color: #111827;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.enter-btn:hover {
+  background: #f3f4f6;
+}
+
+.bottom-text {
+  text-align: center;
+  margin-top: 2rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* Grid Page Styles */
+.page:nth-child(2) {
+  background: #f3f4f6;
+  padding: 3rem 0;
+}
+
+.grid-header {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+  color: #111827;
+}
+
+.grid-title {
+  text-align: center;
+}
+
+.grid-title h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.grid-title p {
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.portfolio-grid {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transform: scale(1);
+  transition: all 0.5s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.project-card.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.project-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+project-header h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.project-images {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.project-card.featured .project-images {
+  grid-template-columns: 1fr;
+}
+
+.project-image {
+  aspect-ratio: 1;
+  border-radius: 0.375rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.project-image:hover {
+  transform: scale(0.95);
+}
+.green {
+  background-image: url(image10.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.gray {
+  background-image: url(image11.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.blue {
+  background-image: url(images-3.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.orange {
+  background-image: url(e9ee75dada77b9fb946c10112c14e1dd.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.purple {
+  background-image: url(black-and-white-body-dark-grunge-aesthetic-qafoyl7yx6z72ald.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pink {
+  background-image: url(c96d0c57b173d74ad6a39dde8aaa3898.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.dark-gray {
+  background-image: url(hand-painted-black-white-minimalist-ink-line-art-aesthetic-lines-modern-abstract-bw-art_688547-3516.jpg.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.amber {
+  background-image: url(900w-fDIL7WlWU7k.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slate {
+  background-image: url(image5.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.light-blue {
+  background-image: url(image6.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.light-green {
+  background-image: url(images.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.light-orange {
+  background-image: url(image8.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.emerald {
+  background-image: url(image9.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.view-btn {
+  margin: 1rem;
+  margin-top: 0;
+  width: calc(100% - 2rem);
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #374151;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.view-btn:hover {
+  background: #111827;
+  color: white;
+}
+
+/* Detail Page Styles */
+.page:nth-child(3) {
+  background: white;
+}
+
+.detail-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-title {
+  text-align: center;
+}
+
+.detail-title h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.detail-title p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.detail-content {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+}
+
+.project-info {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.project-info h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.project-info p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-specs {
+  margin-bottom: 1.5rem;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.tech-specs {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.tech-specs h4 {
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.tech-specs div {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.gallery-image {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.gallery-image:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-image.large {
+  aspect-ratio: 16/9;
+}
+
+.gallery-image.medium {
+  aspect-ratio: 3/4;
+}
+
+.gallery-image.square {
+  aspect-ratio: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-content h1 {
+    font-size: 3rem;
+  }
+
+  .grid-header,
+  .detail-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.featured {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .detail-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover-container {
+    padding: 1rem;
+  }
+
+  .card-content {
+    padding: 2rem 1rem;
+  }
+
+  .card-content h1 {
+    font-size: 2.5rem;
+  }
+}

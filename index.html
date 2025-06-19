@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page active">
+      <div class="cover-container">
+        <div class="portfolio-card">
+          <div class="card-header">
+            <span>2024</span>
+            <span>LOOKBOOK/CATALOG</span>
+            <span>YOUR NAME</span>
+          </div>
+
+          <div class="card-content">
+            <h1>PORTFOLIO</h1>
+
+            <div class="hero-image">
+              <div class="image-content">
+                <div class="figure"></div>
+                <div class="overlay">
+                  <button class="enter-btn" onclick="showGrid()">
+                    Enter Portfolio
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="bottom-text">Click to explore the collection</p>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="grid-header">
+        <button class="back-btn" onclick="showCover()">← Back to Cover</button>
+        <div class="grid-title">
+          <h2>Collections</h2>
+          <p>2025</p>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="project-card featured">
+          <div class="project-header">
+            <div class="project-meta">
+              <span>01</span>
+              <span>PHOTOGRAPHY</span>
+            </div>
+            <h3>Nature Series</h3>
+          </div>
+          <div class="project-images">
+            <div class="project-image green"></div>
+            <div class="project-image gray"></div>
+          </div>
+          <button class="view-btn" onclick="showDetail()">View Project</button>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span>02</span>
+              <span>PHOTOGRAPHY</span>
+            </div>
+            <h3>Urban Exploration</h3>
+          </div>
+          <div class="project-images">
+            <div class="project-image blue"></div>
+            <div class="project-image orange"></div>
+          </div>
+          <button class="view-btn" onclick="showDetail()">View Project</button>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span>03</span>
+              <span>DESIGN</span>
+            </div>
+            <h3>Minimalist Design</h3>
+          </div>
+          <div class="project-images">
+            <div class="project-image purple"></div>
+            <div class="project-image pink"></div>
+          </div>
+          <button class="view-btn" onclick="showDetail()">View Project</button>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span>04</span>
+              <span>PHOTOGRAPHY</span>
+            </div>
+            <h3>Portrait Collection</h3>
+          </div>
+          <div class="project-images">
+            <div class="project-image dark-gray"></div>
+            <div class="project-image amber"></div>
+          </div>
+          <button class="view-btn" onclick="showDetail()">View Project</button>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span>05</span>
+              <span>PHOTOGRAPHY</span>
+            </div>
+            <h3>Mountain Landscapes</h3>
+          </div>
+          <div class="project-images">
+            <div class="project-image slate"></div>
+            <div class="project-image light-blue"></div>
+          </div>
+          <button class="view-btn" onclick="showDetail()">View Project</button>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span>06</span>
+              <span>DESIGN</span>
+            </div>
+            <h3>Abstract Forms</h3>
+          </div>
+          <div class="project-images">
+            <div class="project-image light-green"></div>
+            <div class="project-image light-orange"></div>
+          </div>
+          <button class="view-btn" onclick="showDetail()">View Project</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="detail-header">
+        <button class="back-btn" onclick="showGrid()">
+          ← Back to Portfolio
+        </button>
+        <div class="detail-title">
+          <h2>Nature Series</h2>
+          <p>Photography</p>
+        </div>
+        <div></div>
+      </div>
+        <div class="project-gallery">
+          <div class="gallery-image large green">1</div>
+          <div class="gallery-image medium gray">2</div>
+          <div class="gallery-image square blue">3</div>
+          <div class="gallery-image large emerald">4</div>
+        </div>
+      </div>
+    </div>
+    <script>
+        function showGrid() {
+          const pages = document.querySelectorAll('.page');
+          pages.forEach(page => page.classList.remove('active'));
+          pages[1].classList.add('active'); // Show Grid Page
+        }
+      
+        function showCover() {
+          const pages = document.querySelectorAll('.page');
+          pages.forEach(page => page.classList.remove('active'));
+          pages[0].classList.add('active'); // Show Cover Page
+        }
+      
+        function showDetail() {
+          const pages = document.querySelectorAll('.page');
+          pages.forEach(page => page.classList.remove('active'));
+          pages[2].classList.add('active'); // Show Detail Page
+        }
+      </script>
+  </body>
+</html>
